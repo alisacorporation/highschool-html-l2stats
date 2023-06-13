@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<title>LStats :: Home</title>
+	<meta charset="utf-8">
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jquery.rss.js"></script>
+	<link rel="apple-touch-icon" sizes="57x57" href="img/ico/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/ico/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/ico/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/ico/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/ico/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/ico/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/ico/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/ico/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/ico/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="img/ico/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="img/ico/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/ico/favicon-16x16.png">
+	<link rel="manifest" href="img/ico/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="img/ico/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div id="container">
+	<header></header>
+	<nav id="top">
+		<ul>
+		  <li><a href="./index.htm">Home</a></li>
+		  <li><a href="./champions.htm">Champions</a></li>
+		  <li><a href="/">Contact</a></li>
+		  <li><a href="/">About</a></li>
+		</ul>
+	</nav>
+	<aside id="left">
+		<div class="sideblock">
+			<div class="sideblock_title">:: Menu</div>
+			<div class="sideblock_body_0p">
+				<nav id="left_1">
+				<ul>
+				  <li><a href="./index.htm">Home</a></li>
+				  <li><a href="./champions.htm">Champions</a></li>
+				  <li><a href="#contact">Contact</a></li>
+				  <li><a href="#about">About</a></li>
+				</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="sideblock">
+			<div class="sideblock_title">:: Files</div>
+			<div class="sideblock_body">
+				:: File links hear
+			</div>
+		</div>
+	</aside>
+	<aside id="right">
+		<div class="sideblock">
+			<div class="sideblock_title">:: Sponsors</div>
+			<div class="sideblock_body">
+				:: Sponsor links
+			</div>
+		</div>
+		<div class="sideblock">
+			<div class="sideblock_title">:: WStats</div>
+			<div class="sideblock_body">
+				:: WStats banners
+			</div>
+		</div>
+	</aside>
+	<main>
+	<div id="champ_feeds"></div>
+	</main>
+	<footer>LStats &copy; 2018</footer>
+    <script>
+      jQuery(document).ready(function() {
+        var champ_feeds = $("#champ_feeds");
+        var even, odd = 0;
+		var champs = $.getJSON("http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json", function (data) {
+			$.each(data.data, function (key, value) {
+				champ_feeds.html(champ_feeds.html() + key +" "+ key.key + "<br />");
+            })
+        });
+      });
+    </script>
+</div>		
+</body>
+</html>
